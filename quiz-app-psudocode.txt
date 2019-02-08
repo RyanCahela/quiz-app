@@ -1,0 +1,21 @@
+As a user, I should be able to start the quiz
+    //startQuiz();
+        //console.log('start quiz ran');
+
+As a user, I should be able to view the questions and answers.
+    //renderQuestion();
+        //console.log('render question ran');
+
+As a user, I should be able to select an answer.
+    //checkAnswer();
+        //console.log('checkAnswer ran');
+As a user, I should be able to find out if that answer was correct.
+    //showAnswerResult();
+        //console.log('showAnswerResult ran');
+
+As a user, I should be able to move to the next question.
+    //moveToNextQuestion();
+As a user, I should be able to view my score at the end.
+    //renderFinalScore();
+As a user, I should have the option of restarting.
+    //replayQuiz();
