@@ -21,43 +21,51 @@ body {
     background-color: var(--dark-color);
     background-size: cover;
     height: 100vh;
-}
-
-.font-serif {
-    Font-Family: 'Droid Serif', Serif;
-    Font-Size: 10px;
-}
-
-.font-sans-serif {
     Font-Family: 'Roboto', Sans-Serif;
     Font-Size: 10px;
 }
+
 
 .container {
     width: 100%;
     margin: 0 auto;
 }
 
+.container, .header {
+    background: var(--light-color);
+}
+
 .btn-red {
     background: linear-gradient(var(--accent-color), var(--accent-gradient));
     color: var(--light-color);
     cursor: pointer;
-    font-size: 2rem;
+    font-size: 1rem;
     padding: 20px 30px;
     outline: none;
+    transition: filter 0.3s ease;
+}
+
+.btn-red:hover,
+.btn-red:active {
+    filter: brightness(85%);
+}
+
+.header {
+    padding: 10px 20px;
+    margin-bottom: 100px;
+}
+
+.heading {
+    font-size: 2rem;
+    margin: 0;
 }
 
 .hide {
     display: none;
 }
 
+
 .text-center {
     text-align: center;
 }
 
-@media only screen and (min-width: 600px) {
-    #start-view .container {
-        width: 600px;
-        margin: 0 auto;
-    }
-}

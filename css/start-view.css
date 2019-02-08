@@ -1,15 +1,5 @@
-#start-view .header {
-    background: var(--light-color);
-    padding: 10px 20px;
-    margin-bottom: 100px;
-}
-
 #start-view .header .heading {
     margin: 0;
-}
-
-#start-view .heading {
-    font-size: 2rem;
 }
 
 #start-view .container {
@@ -23,6 +13,10 @@
     align-items: center;
     justify-content: center;
     height: 50vh;
+}
+
+#start-view .btn-red {
+    font-size: 2rem;
 }
 
 @media only screen and (min-width: 600px) {

@@ -14,31 +14,32 @@
     <title>Food Origin Quiz</title>
 </head>
 <body>
-    <section id="start-view" class="font-sans-serif">
+    <section id="start-view" class="hide">
         <header role="banner" class="header">
             <h1 class="heading">Food Origin Master</h1>
         </header>
         <main role="main" class="container main">
-            <h3 class="large-text text-center">Are YOU a food origin master?</h3>
+            <h3 class="text-center">Are YOU a food origin master?</h3>
             <button class="btn-red">Start Quiz</button>
         </main>
     </section>
 
-    <section id="question-view" class="hide">
+    <section id="question-view" class="">
         <header role="banner" class="header">
-            <h1>Food Origin Master</h1>
-            <h2>Score</h2>
+            <h1 class="heading">Food Origin Master</h1>
+            <h2 class="question-number">1 of 10</h2>
+            <h2 class="score">Score: 0</h2>
         </header>
         <main role="main" class="container">
-            <section>
-                <img src="" alt="">
-                <h5>Question Text</h5>
+            <section class="question">
+                <img class="question-image" src="img/sushi.jpg" alt="Sushi with chopsticks on a plate">
+                <h5 class="question-text">Mix your soy and Wasabi-who brought us Sushi?</h5>
             </section>
-            <form action="">
-                <button>Answer 1</button>
-                <button>Answer 2</button>
-                <button>Answer 3</button>
-                <button>Answer 4</button>
+            <form class="answer-form" action="">
+                <button class="btn-red">Europe</button>
+                <button class="btn-red">Southeast Asia</button>
+                <button class="btn-red">Africa</button>
+                <button class="btn-red">South America</button>
             </form>
         </main>
     </section>
