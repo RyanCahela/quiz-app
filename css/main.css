@@ -1,0 +1,30 @@
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+:root {
+    --dark-color: #1B1A28;
+    --medium-dark: #2E3140;
+    --medium-light: #86858C;
+    --light-color: #F5F0EB;
+}
+
+body {
+    background-image: url("../img/background.jpg");
+    background-repeat: no-repeat;
+    background-color: var(--dark-color);
+    background-size: cover;
+}
+
+section {
+    background: var(--light-color);
+}
+
+.hide {
+    display: none;
+}
+
