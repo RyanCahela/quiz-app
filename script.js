@@ -216,7 +216,7 @@ function buildStartView() {
     </header>
     <main role="main">
         <h3>Are YOU a Food Origin Master?</h3>
-        <button class="start-button">Start Quiz</button>
+        <button class="start-button" aria-label="start quiz">Start Quiz</button>
     </main>
 </section>`);
 }
@@ -241,10 +241,17 @@ function buildQuestionView(STORE) {
                     <h5 class="js-question-text">${question}</h5>
                 </section>
                 <form class="js-answer-form" action="">
-                    <button type="button" data-answer="1">${answer1}</button>
-                    <button type="button" data-answer="2">${answer2}</button>
-                    <button type="button" data-answer="3">${answer3}</button>
-                    <button type="button" data-answer="4">${answer4}</button>
+                    <label for="${answer1}" class="hide">${answer1}</label>
+                    <input type="button" name="${answer1}" data-answer="1" value="${answer1}"></input>
+
+                    <label for="${answer2}" class="hide">${answer2}</label>
+                    <input type="button" name="${answer2}" data-answer="2" value="${answer2}"></input>
+
+                    <label for="${answer3}" class="hide">${answer3}</label>
+                    <input type="button" name="${answer3}" data-answer="3" value="${answer3}"></input>
+
+                    <label for="${answer4}" class="hide">${answer4}</label>
+                    <input type="button" name="${answer4}" data-answer="4" value="${answer4}"></input>
                 </form>
             </main>
         </section>`
@@ -255,11 +262,13 @@ function buildQuestionView(STORE) {
 function buildResultView(STORE) {
     let imageUrl = STORE[0].imageUrl;
     let imageAlt = STORE[0].imageAlt;
+    let correctDetail = STORE[0].answers.correctDetail;
 
     let builtHtml = $(`<section id="results-view" class="">
     <img src="${imageUrl}" alt="${imageAlt}">
     <h1>${resultMessage}</h1>
-    <button class="next-question-btn">Next Question</button>
+    <p>${correctDetail}</p>
+    <button class="next-question-btn" aria-label="next question">Next Question</button>
 </section>`);
 
     return builtHtml;
@@ -274,7 +283,7 @@ function buildEndView() {
     <main role="main">
         <h3>${score}</h3>
         <img src="" alt="">
-        <button class="js-retake-quiz">Retake Quiz</button>
+        <button class="js-retake-quiz" aria-label="retake quiz">Retake Quiz</button>
     </main>
     </section>`);   
 }
@@ -324,7 +333,7 @@ function checkAnswer(){
     event.preventDefault();
     console.log('`checkAnswer` ran');
     //grab inner text of button that was clicked
-    answerText = event.target.textContent;
+    answerText = event.target.value;
 
     //compare button text to correct: in STORE
     answerIsCorrect = evaluateAnswer(answerText);
