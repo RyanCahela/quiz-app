@@ -2,6 +2,7 @@ console.log('JS Connected');
 
 const questionBank = [];
 
+let score;
 
 const STORE = [{
     question: "A random question",
