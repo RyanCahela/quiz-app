@@ -1,0 +1,33 @@
+#end-view .container {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    align-items: center;
+    padding: 20px;
+}
+
+#end-view .score {
+    font-size: 4rem;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#end-view .result-image {
+    filter: grayscale(100%);
+}
+
+#end-view .result-text {
+    font-size: 1.5rem;
+    text-align: center;
+
+}
+
+#end-view img[src="img/you-win.gif"] {
+    filter: brightness(150%);
+}
+
+#end-view .btn-red {
+    width: 80%;
+    margin-top: 20px;
+}
