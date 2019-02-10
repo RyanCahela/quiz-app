@@ -181,14 +181,14 @@ let appState = "start-view";
 let resultMessage;
 let currentQuestion = 0;
 let loseInfo = {
-    image: "img/you-lose.jpg",
+    image: "img/you-lose.gif",
     imageAltText: "Willy Wonka You Lose",
     message: "You lose sir! Good day!"
 
 };
 
 let winInfo = {
-    image: "img/you-win.jpg",
+    image: "img/you-win.gif",
     imageAltText: "Dancing captain picard",
     message: "Congratulations! You Won!"
 }
