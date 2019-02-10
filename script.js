@@ -14,7 +14,7 @@ const questionBank = [
             correctDetail: `Others contend that pierogi were brought to Poland by Saint Hyacinth of Poland, 
             who brought them back from Kiev (the center of Kievan Rus', nowadays the capital of Ukraine).`
         },
-        imageUrl: "img/perogi2.jpg",
+        imageUrl: "img/perogi2.jpeg",
         imageAlt: "white, round plate with seven perogi with light browning."
       },
       {
@@ -45,21 +45,20 @@ const questionBank = [
             getCorrect:  function() {
                 return this.answer1;
             },
-            correctDetail: "Tofu has been consumed for more than 2000 years in China"
+            correctDetail: "`Tofu has been consumed for more than 2000 years in China.`"
         },
         imageUrl: "img/tofu2.jpg",
-        imageAlt: `a block of solid tofu on a wooden cutting boar. A small pile of greens and a small pile 
-        of cubed tofu are also on the cutting board.`
+        imageAlt: "a block of solid tofu on a wooden cutting boar. A small pile of greens and a small pile of cubed tofu are also on the cutting board."
       },
       {
         question: "Where was the first pizza made according to pizza lore?",
         answers: {
-            answer1: "Italy",
+            answer1: "Japan",
             answer2: "New York, USA",
             answer3: "Greece",
-            answer4: "Japan",
+            answer4: "Italy",
             getCorrect:  function() {
-                return this.answer1;
+                return this.answer4;
             },
             correctDetail: `An often recounted story holds that on 11 June 1889, to honour the Queen consort 
             of Italy, Margherita of Savoy, the Neapolitan pizza maker Raffaele Esposito created the "Pizza Margherita"
@@ -72,12 +71,12 @@ const questionBank = [
       {
         question: "Who started making the donuts in their round with a hole form?",
         answers: {
-            answer1: "United States",
+            answer1: "England",
             answer2: "Germany",
-            answer3: "England",
+            answer3: "United States",
             answer4: "Iran",
             getCorrect:  function() {
-                return this.answer1;
+                return this.answer3;
             },
             correctDetail: `Hanson Gregory, an American, claimed to have invented the ring-shaped doughnut 
             in 1847 aboard a lime-trading ship when he was 16 years old. Gregory was dissatisfied with the 
@@ -100,17 +99,17 @@ const questionBank = [
              when a recipe for "a light cake to bake in small cups" was written in American Cookery by Amelia Simmons`
         },
         imageUrl: "img/cupcake1.jpg",
-        imageAlt: "a yellow cupcake cunt in half on a plate. The frosting is white with tinges of blue and spilling from the center are sprinkles and candy pieces"
+        imageAlt: "a yellow cupcake cut in half on a plate. The frosting is white with tinges of blue and spilling from the center are sprinkles and candy pieces."
       },
       {
         question: "Curry is a favorite in many countries but what country started the trend?",
         answers: {
-            answer1: "India",
+            answer1: "Canada",
             answer2: "England",
             answer3: "Russia",
-            answer4: "Canada",
+            answer4: "India",
             getCorrect:  function() {
-                return this.answer1;
+                return this.answer4;
             },
             correctDetail: `Curry (plural curries) is a variety of dishes originating in the Indian subcontinent 
             that use a complex combination of spices or herbs, usually including ground turmeric, cumin, coriander,
@@ -122,19 +121,19 @@ const questionBank = [
       {
         question: "Nothing beats Scotch Eggs as bar food but who came up with it?",
         answers: {
-            answer1: "England",
-            answer2: "Ireland",
+            answer1: "Ireland",
+            answer2: "England",
             answer3: "Scotland",
             answer4: "Canada",
             getCorrect:  function() {
-                return this.answer1;
+                return this.answer2;
             },
             correctDetail: `The London department store Fortnum & Mason claims to have invented Scotch eggs in 
             1851 but the name for the snack was supposedly derived from a nickname used by Londoners who lived 
             around Wellington Barracks after Officers of the Scots Guards stationed there developed a taste for the snack`
         },
         imageUrl: "img/scotcheggs2.jpg",
-        imageAlt: `Three Scotch egg halvs yolk up and one half down on a wooden cutting board with a cup 
+        imageAlt: `Three Scotch egg halves, yolk up, and one half down on a wooden cutting board with a cup 
         of mustard. Scotch eggs are medium hard eggs wrapped in sausage, rolled in breadcrumbs and fried.`
       },
       {
@@ -147,30 +146,30 @@ const questionBank = [
             getCorrect:  function() {
                 return this.answer1;
             },
-            correctDetail: `The term hamburger originally derives from Hamburg,[1] Germany's s
+            correctDetail: `The term hamburger originally derives from Hamburg, Germany's s
             econd-largest city but the actual sandwich may have been done first in New Haven CT, 
             in 1900 Louis Lassen, a Danish immigrant, owner of Louis' Lunch.`
         },
         imageUrl: "img/hamburger2.jpg",
-        imageAlt: "grilled beef patty on e sesame seed bun with ketchup and pickles."
+        imageAlt: "grilled beef patty on a sesame seed bun with ketchup and pickles."
       },
       {
         question: "Mix your soy and Wasabi-who brought us Sushi?",
         answers: {
-            answer1: "South East Asia",
+            answer1: "South America",
             answer2: "India",
-            answer3: "South America",
-            answer4: "Norway",
+            answer3: "Norway",
+            answer4: "South East Asia",
             getCorrect:  function() {
-                return this.answer1;
+                return this.answer4;
             },
             correctDetail: `The earliest form of sushi, a dish today known as narezushi, 
             has its probable origin with paddy fields along the Mekong river in Southeast Asia. 
             The prototypical narezushi is made by lacto-fermenting fish with salt and rice in
-             order to control putrefaction.( Southeast Asia)`
+             order to control putrefaction.( Southeast Asia).`
         },
         imageUrl: "img/sushi3.jpg",
-        imageAlt: "An oval platter with sliced nori wrapped sushi rolls stacked.Chopsticks lay across the platter."
+        imageAlt: "An oval platter with sliced nori wrapped sushi rolls, stacked. Chopsticks lay across the platter."
       }
 
 ];
