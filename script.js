@@ -32,7 +32,7 @@ const questionBank = [
             fry cook at his father's Pasadena, California sandwich shop, "The Rite Spot",
              and experimentally dropped a slab of American cheese on a sizzling hamburger.`
         },
-        imageUrl: "img/cheeseburger1.jpg",
+        imageUrl: "img/cheeseburger1.jpeg",
         imageAlt: "cheeseburger with a sesame seed bun, lettuce, tomato, and onion."
       },
       {
@@ -47,7 +47,7 @@ const questionBank = [
             },
             correctDetail: "`Tofu has been consumed for more than 2000 years in China.`"
         },
-        imageUrl: "img/tofu2.jpg",
+        imageUrl: "img/tofu2.jpeg",
         imageAlt: "a block of solid tofu on a wooden cutting boar. A small pile of greens and a small pile of cubed tofu are also on the cutting board."
       },
       {
@@ -65,7 +65,7 @@ const questionBank = [
             , a pizza garnished with tomatoes, mozzarella, and basil, to represent the national colours of Italy as 
             on the Italian flag.`
         },
-        imageUrl: "img/pizza1.jpg",
+        imageUrl: "img/pizza1.jpeg",
         imageAlt: "A large New York style cheese pizza on a wooden cutting board, one slice removed."
       },
       {
@@ -82,7 +82,7 @@ const questionBank = [
             in 1847 aboard a lime-trading ship when he was 16 years old. Gregory was dissatisfied with the 
             greasiness of doughnuts twisted into various shapes and with the raw center of regular doughnuts.`
         },
-        imageUrl: "img/donuts2.jpg",
+        imageUrl: "img/donuts2.jpeg",
         imageAlt: "A variety of donuts on a wire cooling rack. Some have glazes or frosting, while others have crunchy bits."
       },
       {
@@ -98,7 +98,7 @@ const questionBank = [
             correctDetail: `The earliest extant description of what is now often called a cupcake was in 1796,
              when a recipe for "a light cake to bake in small cups" was written in American Cookery by Amelia Simmons`
         },
-        imageUrl: "img/cupcake1.jpg",
+        imageUrl: "img/cupcake1.jpeg",
         imageAlt: "a yellow cupcake cut in half on a plate. The frosting is white with tinges of blue and spilling from the center are sprinkles and candy pieces."
       },
       {
@@ -115,7 +115,7 @@ const questionBank = [
             that use a complex combination of spices or herbs, usually including ground turmeric, cumin, coriander,
              ginger, and fresh or dried chilies.`
             },
-        imageUrl: "img/curry3.jpg",
+        imageUrl: "img/curry3.jpeg",
         imageAlt: "Red curried chicken with green vegtable in a ceramic, two handled pot."
       },
       {
@@ -132,7 +132,7 @@ const questionBank = [
             1851 but the name for the snack was supposedly derived from a nickname used by Londoners who lived 
             around Wellington Barracks after Officers of the Scots Guards stationed there developed a taste for the snack`
         },
-        imageUrl: "img/scotcheggs2.jpg",
+        imageUrl: "img/scotcheggs2.jpeg",
         imageAlt: `Three Scotch egg halves, yolk up, and one half down on a wooden cutting board with a cup 
         of mustard. Scotch eggs are medium hard eggs wrapped in sausage, rolled in breadcrumbs and fried.`
       },
@@ -150,7 +150,7 @@ const questionBank = [
             econd-largest city but the actual sandwich may have been done first in New Haven CT, 
             in 1900 Louis Lassen, a Danish immigrant, owner of Louis' Lunch.`
         },
-        imageUrl: "img/hamburger2.jpg",
+        imageUrl: "img/hamburger2.jpeg",
         imageAlt: "grilled beef patty on a sesame seed bun with ketchup and pickles."
       },
       {
@@ -168,7 +168,7 @@ const questionBank = [
             The prototypical narezushi is made by lacto-fermenting fish with salt and rice in
              order to control putrefaction.( Southeast Asia).`
         },
-        imageUrl: "img/sushi3.jpg",
+        imageUrl: "img/sushi3.jpeg",
         imageAlt: "An oval platter with sliced nori wrapped sushi rolls, stacked. Chopsticks lay across the platter."
       }
 
@@ -193,7 +193,7 @@ const STORE = [{
         },
         correctDetail: "Others contend that pierogi were brought to Poland by Saint Hyacinth of Poland, who brought them back from Kiev (the center of Kievan Rus', nowadays the capital of Ukraine)."
     },
-    imageUrl: "img/perogi2.jpg",
+    imageUrl: "img/perogi2.jpeg",
     imageAlt: "white, round plate with seven perogi with light browning."
   }];
 // As a user, I should be able to start the quiz
