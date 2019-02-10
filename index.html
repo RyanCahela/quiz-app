@@ -25,16 +25,16 @@
     </section>
 
     <!--Old template-->
-    <section id="question-view" class="hide">
+    <section id="question-view" class="">
         <header role="banner" class="header">
             <h1 class="heading">Food Origin Master</h1>
-            <h2 class="question-number">1 of 10</h2>
-            <h2 class="score">Score: <span class="score-number">0</span></h2>
+            <h2 class="question-number">${currentQuestion + 1} of 10</h2>
+            <h2 class="score">Score: <span class="score-number">${score}</span></h2>
         </header>
         <main role="main" class="container">
             <section class="question">
-                <img class="question-image" src="img/sushi.jpg" alt="Sushi with chopsticks on a plate">
-                <h5 class="question-text">Mix your soy and Wasabi-who brought us Sushi?</h5>
+                <img class="js-question-image question-image" src="img/sushi.jpg" alt="Sushi with chopsticks on a plate">
+                <h5 class="js-question-text question-text">Mix your soy and Wasabi-who brought us Sushi?</h5>
             </section>
             <form class="js-answer-form answer-form" action="">
                 <label for="${answer1}" class="hide">${answer1}</label>
@@ -55,85 +55,73 @@
 
 
 
-    <section id="question-view">
+
+
+
+
+
+
+
+
+
+
+    <section id="results-view" class="">
         <header role="banner">
             <h1>Push Food Origin Master</h1>
             <h2 class="js-score">Score:${score}</h2>
         </header>
-        <main role="main">
-            <section>
-                <img class="js-question-image" src="${imageUrl}" alt="${imageAlt}">
-                <h5 class="js-question-text">${question}</h5>
-            </section>
-            <form class="js-answer-form" action="">
-                <label for="${answer1}" class="hide">${answer1}</label>
-                <input type="button" name="${answer1}" data-answer="1" value="${answer1}"></input>
-
-                <label for="${answer2}" class="hide">${answer2}</label>
-                <input type="button" name="${answer2}" data-answer="2" value="${answer2}"></input>
-
-                <label for="${answer3}" class="hide">${answer3}</label>
-                <input type="button" name="${answer3}" data-answer="3" value="${answer3}"></input>
-
-                <label for="${answer4}" class="hide">${answer4}</label>
-                <input type="button" name="${answer4}" data-answer="4" value="${answer4}"></input>
-            </form>
-        </main>
+        <img src="${imageUrl}" alt="${imageAlt}">
+        <h1>${resultMessage}</h1>
+        <p>${correctDetail}</p>
+        <button class="next-question-btn" aria-label="next question">Next Question</button>
     </section>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <section id="results-view" class="hide">
+    <section id="results-view" class="">
         <div class="shadow">
             <main role="main" class="lightbox">
-                <img src="img/southeast_asia_map.png" alt="Map of southeast asia">
-                <h5 class="result">Correct!</h5>
-                <p class="expanded-answer">The earliest form of sushi, 
-                    a dish today known as narezushi, 
-                    has its probable origin with paddy fields along 
-                    the Mekong river in Southeast Asia.</p>
-                <button class="btn-red">Next Question</button>
+                <img src="${imageUrl}" alt="${imageAlt}">
+                <h5 class="result">${resultMessage}</h5>
+                <p class="expanded-answer">${correctDetail}</p>
+                <button class="btn-red next-question-btn" aria-label="next question">Next Question</button>
             </main>
         </div>
     </section>
+
+
+
+
+
+
+
+
 
     <section id="end-view" class="hide">
         <header role="banner" class="header">
             <h1>Food Origin Master</h1>
         </header>
         <main role="main" class="container">
-            <h3 class="score">Score: 5/10</h3>
-            <img class="result-image" src="img/you-lose.gif" alt="Picard Falcepalm You Lose">
+            <h3 class="score">Score: ${score}/10</h3>
+            <img class="result-image" src="img/you-lose.gif" alt="Willy Wonka You Lose">
             <p class="result-text">Shoot! You lost, you need to get 7/10 to win</p>
-            <button class="btn-red">Retake Quiz</button>
+            <button class="js-retake-quiz btn-red" aria-label="retake quiz">Retake Quiz</button>
         </main>
     </section>
+
+
+    <section id="end-view" class="">
+        <header role="banner">
+            <h1>Push Food Origin Master</h1>
+        </header>
+        <main role="main">
+            <h3>${score}</h3>
+            <img src="" alt="">
+            <button class="js-retake-quiz" aria-label="retake quiz">Retake Quiz</button>
+        </main>
+        </section>
+
+
+
     
     <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"

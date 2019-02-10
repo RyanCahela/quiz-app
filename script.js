@@ -180,6 +180,18 @@ let answerIsCorrect = true;
 let appState = "start-view";
 let resultMessage;
 let currentQuestion = 0;
+let loseInfo = {
+    image: "img/you-lose.jpg",
+    imageAltText: "Willy Wonka You Lose",
+    message: "You lose sir! Good day!"
+
+};
+
+let winInfo = {
+    image: "img/you-win.jpg",
+    imageAltText: "Dancing captain picard",
+    message: "Congratulations! You Won!"
+}
 
 const STORE = [{
     question: "Where did Perogies come from?",
@@ -267,14 +279,14 @@ function buildResultView(STORE) {
     let correctDetail = STORE[0].answers.correctDetail;
 
     let builtHtml = $(`<section id="results-view" class="">
-    <header role="banner">
-        <h1>Push Food Origin Master</h1>
-        <h2 class="js-score">Score:${score}</h2>
-    </header>
-    <img src="${imageUrl}" alt="${imageAlt}">
-    <h1>${resultMessage}</h1>
-    <p>${correctDetail}</p>
-    <button class="next-question-btn" aria-label="next question">Next Question</button>
+    <div class="shadow">
+        <main role="main" class="lightbox">
+            <img src="${imageUrl}" alt="${imageAlt}">
+            <h5 class="result">${resultMessage}</h5>
+            <p class="expanded-answer">${correctDetail}</p>
+            <button class="btn-red next-question-btn" aria-label="next question">Next Question</button>
+        </main>
+    </div>
 </section>`);
 
     return builtHtml;
@@ -282,16 +294,31 @@ function buildResultView(STORE) {
 }
 
 function buildEndView() {
+    let imageUrl;
+    let imageAltText;
+    let message;
+    if(score >= 7) {
+        imageUrl = winInfo.image;
+        message = winInfo.message;
+        imageAltText = winInfo.imageAltText;
+    } else {
+        imageUrl = loseInfo.image;
+        message = loseInfo.message;
+        imageAltText = loseInfo.imageAltText;
+    }
+    
+
     return $(`<section id="end-view" class="">
-    <header role="banner">
-        <h1>Push Food Origin Master</h1>
+    <header role="banner" class="header">
+        <h1>Food Origin Master</h1>
     </header>
-    <main role="main">
-        <h3>${score}</h3>
-        <img src="" alt="">
-        <button class="js-retake-quiz" aria-label="retake quiz">Retake Quiz</button>
+    <main role="main" class="container">
+        <h3 class="score">Score: ${score}/10</h3>
+        <img class="result-image" src="${imageUrl}" alt="${imageAltText}">
+        <p class="result-text">${message}</p>
+        <button class="js-retake-quiz btn-red" aria-label="retake quiz">Retake Quiz</button>
     </main>
-    </section>`);   
+</section>`);   
 }
 
 // As a user, I should be able to view the questions and answers.

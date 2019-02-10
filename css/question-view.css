@@ -50,7 +50,7 @@
 
 #question-view .question-image {
     filter: grayscale(100%);
-    width: 80%;
+    width: 300px;
     margin-top: 20px;
 }
 
