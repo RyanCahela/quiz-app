@@ -176,242 +176,281 @@ const questionBank = [
 ];
 
 
-let score=0;
+let score
 let answerIsCorrect = true;
 let appState = "start-view";
 let resultMessage;
 let currentQuestion = 0;
 
-const STORE = [{
+const STORE = {
     question: "Where did Perogies come from?",
     answers: {
-        answer1: "Russia",
-        answer2: "Poland",
-        answer3: "Ukraine",
-        answer4: "Hungary",
+        answer1: {text: "Russia",
+                isCorrect: false
+                },
+        answer2: {text: "Poland",
+                isCorrect: false
+                },
+        answer3: {text: "Ukraine",
+                isCorrect: true
+                },
+        answer4: {text: "Hungary",
+                isCorrect: false
+                },
         getCorrect: function() {
-            return this.answer3;
+            let answers = Object.values(this);
+            
+            console.log(answers);    
         },
-        correctDetail: "Others contend that pierogi were brought to Poland by Saint Hyacinth of Poland, who brought them back from Kiev (the center of Kievan Rus', nowadays the capital of Ukraine)."
     },
+    correctDetail: `Others contend that pierogi were brought 
+        to Poland by Saint Hyacinth of Poland, who brought them back 
+        from Kiev (the center of Kievan Rus', nowadays the capital of Ukraine).`
+    ,
+    getAnswers: function() {
+        return this.answers;
+    },
+    setAnswers: function(array) {
+        this.answers.answer1 = array[0];
+        this.answers.answer2 = array[1];
+        this.answers.answer3 = array[2];
+        this.answers.answer4 = array[3];
+    },
+
     imageUrl: "img/perogi2.jpg",
     imageAlt: "white, round plate with seven perogi with light browning."
-  }];
-// As a user, I should be able to start the quiz
-// this function will listen for teh start button to be clicked
-function startQuiz(){
-    renderView('start-view');
-    $('.start-button').on('click', function() {
-        appState = "question-view";
-        renderView(appState);
-    });
-  console.log('`startQuiz` ran');
-    //listen for answer 
-}
-
-function buildStartView() {
-    return $(`<section id="start-view" class="">
-    <header role="banner">
-        <h1>Push Food Origin Master</h1>
-    </header>
-    <main role="main">
-        <h3>Are YOU a Food Origin Master?</h3>
-        <button class="start-button" aria-label="start quiz">Start Quiz</button>
-    </main>
-</section>`);
-}
-
-function buildQuestionView(STORE) {
-    let question = STORE[0].question;
-    let answer1 = STORE[0].answers.answer1;
-    let answer2 = STORE[0].answers.answer2;
-    let answer3 = STORE[0].answers.answer3;
-    let answer4 = STORE[0].answers.answer4;
-    let imageUrl = STORE[0].imageUrl;
-    let imageAlt = STORE[0].imageAlt;
-
-    let builtQuestionView = $(`<section id="question-view">
-            <header role="banner">
-                <h1>Push Food Origin Master</h1>
-                <h2 class="js-score">Score</h2>
-            </header>
-            <main role="main">
-                <section>
-                    <img class="js-question-image" src="${imageUrl}" alt="${imageAlt}">
-                    <h5 class="js-question-text">${question}</h5>
-                </section>
-                <form class="js-answer-form" action="">
-                    <label for="${answer1}" class="hide">${answer1}</label>
-                    <input type="button" name="${answer1}" data-answer="1" value="${answer1}"></input>
-
-                    <label for="${answer2}" class="hide">${answer2}</label>
-                    <input type="button" name="${answer2}" data-answer="2" value="${answer2}"></input>
-
-                    <label for="${answer3}" class="hide">${answer3}</label>
-                    <input type="button" name="${answer3}" data-answer="3" value="${answer3}"></input>
-
-                    <label for="${answer4}" class="hide">${answer4}</label>
-                    <input type="button" name="${answer4}" data-answer="4" value="${answer4}"></input>
-                </form>
-            </main>
-        </section>`
-    );
-    return builtQuestionView; 
-}
-
-function buildResultView(STORE) {
-    let imageUrl = STORE[0].imageUrl;
-    let imageAlt = STORE[0].imageAlt;
-    let correctDetail = STORE[0].answers.correctDetail;
-
-    let builtHtml = $(`<section id="results-view" class="">
-    <img src="${imageUrl}" alt="${imageAlt}">
-    <h1>${resultMessage}</h1>
-    <p>${correctDetail}</p>
-    <button class="next-question-btn" aria-label="next question">Next Question</button>
-</section>`);
-
-    return builtHtml;
-
-}
-
-function buildEndView() {
-    return $(`<section id="end-view" class="">
-    <header role="banner">
-        <h1>Push Food Origin Master</h1>
-    </header>
-    <main role="main">
-        <h3>${score}</h3>
-        <img src="" alt="">
-        <button class="js-retake-quiz" aria-label="retake quiz">Retake Quiz</button>
-    </main>
-    </section>`);   
-}
-
-// As a user, I should be able to view the questions and answers.
-// This function will render the quiz question with answers to select
-function renderView(appState){
-    //grab information from store
-
-    if(appState === "start-view") {
-        let finishedHtml = buildStartView(STORE);
-        $('.body').html(finishedHtml);
-    }
-
-    if(appState === "question-view") {
-        let finishedHtml = buildQuestionView(STORE);
-        $('.body').html(finishedHtml);
-        checkAnswer();
-    }
-
-    if(appState === "results-view") {
-        let finishedHtml = buildResultView(STORE);
-        $('.body').html(finishedHtml);
-    }
-
-    if(appState === "end-view") {
-        let finishedHtml = buildEndView(STORE);
-        $('.body').html(finishedHtml);
-    }
-
-  console.log(`currentQustion${currentQuestion}`);  
-  console.log('`renderView` ran');
-    
-}
-
-// As a user, I should be able to select an answer.
-// this function compares the checked answer to the correct answer for a T/F
-function checkAnswer(){
-  //listen for click on anwser button
-  let answerText;
-
-  function evaluateAnswer(answerToEvaluate) {
-    return answerToEvaluate === STORE[0].answers.getCorrect();
-    }
-
-  $('.js-answer-form').on('click', function(event) {
-    event.preventDefault();
-    console.log('`checkAnswer` ran');
-    //grab inner text of button that was clicked
-    answerText = event.target.value;
-
-    //compare button text to correct: in STORE
-    answerIsCorrect = evaluateAnswer(answerText);
-    showAnswerResult();
-  });
-}
-
-// As a user, I should be able to find out if that answer was correct.
-// this function renders the question result page showing the correct answer 
-function showAnswerResult(){
-  console.log('showAnswerResult ran');
-  //determine if answer was correct or not
-  if(answerIsCorrect) {
-      //assign result sentence "correct" or "not correct"
-      resultMessage = "Yaaay! You got it right!";
-      //adjust score accordingly
-      score++;
-  } else {
-      //assign result sentence "correct" or "not correct"
-      resultMessage = "Awww, you got it wrong";
   }
 
-  //render resultspage
-  appState = "results-view";
-  renderView(appState);
-  moveToNextQuestion();
-  currentQuestion++
-  console.log(`score:${score}`);
-}
 
-// As a user, I should be able to move to the next question.
-// this function listens for the next button to be activated & moves to next 
-// question page
-function moveToNextQuestion(){
-     //detect click on next question button
-    $('.next-question-btn').on('click', function(event) {
-        if(currentQuestion <= 9) {
-            STORE.pop();
-            STORE.push(questionBank[currentQuestion]);
-            appState = "question-view";
-            renderView(appState);
-        }
 
-        if(currentQuestion > 9) {
-            appState = "end-view";
-            showFinalScore(); 
-        }
+
+console.log(STORE.getAnswers());
+
+
+
+
+
+
+
+
+
+
+
+// As a user, I should be able to start the quiz
+// this function will listen for teh start button to be clicked
+// function startQuiz(){
+//     renderView('start-view');
+//     $('.start-button').on('click', function() {
+//         appState = "question-view";
+//         renderView(appState);
+//     });
+//   console.log('`startQuiz` ran');
+//     //listen for answer 
+// }
+
+// function buildStartView() {
+//     return $(`<section id="start-view" class="">
+//     <header role="banner">
+//         <h1>Push Food Origin Master</h1>
+//     </header>
+//     <main role="main">
+//         <h3>Are YOU a Food Origin Master?</h3>
+//         <button class="start-button" aria-label="start quiz">Start Quiz</button>
+//     </main>
+// </section>`);
+// }
+
+// function buildQuestionView(STORE) {
+//     let question = STORE.question;
+//     let answer1 = STORE.answers.answer1;
+//     let answer2 = STORE.answers.answer2;
+//     let answer3 = STORE.answers.answer3;
+//     let answer4 = STORE.answers.answer4;
+//     let imageUrl = STORE.imageUrl;
+//     let imageAlt = STORE.imageAlt;
+
+//     let builtQuestionView = $(`<section id="question-view">
+//             <header role="banner">
+//                 <h1>Push Food Origin Master</h1>
+//                 <h2 class="js-score">Score</h2>
+//             </header>
+//             <main role="main">
+//                 <section>
+//                     <img class="js-question-image" src="${imageUrl}" alt="${imageAlt}">
+//                     <h5 class="js-question-text">${question}</h5>
+//                 </section>
+//                 <form class="js-answer-form" action="">
+//                     <label for="${answer1}" class="hide">${answer1}</label>
+//                     <input type="button" name="${answer1}" data-answer="1" value="${answer1}"></input>
+
+//                     <label for="${answer2}" class="hide">${answer2}</label>
+//                     <input type="button" name="${answer2}" data-answer="2" value="${answer2}"></input>
+
+//                     <label for="${answer3}" class="hide">${answer3}</label>
+//                     <input type="button" name="${answer3}" data-answer="3" value="${answer3}"></input>
+
+//                     <label for="${answer4}" class="hide">${answer4}</label>
+//                     <input type="button" name="${answer4}" data-answer="4" value="${answer4}"></input>
+//                 </form>
+//             </main>
+//         </section>`
+//     );
+//     return builtQuestionView; 
+// }
+
+// function buildResultView(STORE) {
+//     let imageUrl = STORE.imageUrl;
+//     let imageAlt = STORE.imageAlt;
+//     let correctDetail = STORE.answers.correctDetail;
+
+//     let builtHtml = $(`<section id="results-view" class="">
+//     <img src="${imageUrl}" alt="${imageAlt}">
+//     <h1>${resultMessage}</h1>
+//     <p>${correctDetail}</p>
+//     <button class="next-question-btn" aria-label="next question">Next Question</button>
+// </section>`);
+
+//     return builtHtml;
+
+// }
+
+// function buildEndView() {
+//     return $(`<section id="end-view" class="">
+//     <header role="banner">
+//         <h1>Push Food Origin Master</h1>
+//     </header>
+//     <main role="main">
+//         <h3>${score}</h3>
+//         <img src="" alt="">
+//         <button class="js-retake-quiz" aria-label="retake quiz">Retake Quiz</button>
+//     </main>
+//     </section>`);   
+// }
+
+// // As a user, I should be able to view the questions and answers.
+// // This function will render the quiz question with answers to select
+// function renderView(appState){
+//     //grab information from store
+
+//     if(appState === "start-view") {
+//         let finishedHtml = buildStartView(STORE);
+//         $('.body').html(finishedHtml);
+//     }
+
+//     if(appState === "question-view") {
+//         let finishedHtml = buildQuestionView(STORE);
+//         $('.body').html(finishedHtml);
+//         checkAnswer();
+//     }
+
+//     if(appState === "results-view") {
+//         let finishedHtml = buildResultView(STORE);
+//         $('.body').html(finishedHtml);
+//     }
+
+//     if(appState === "end-view") {
+//         let finishedHtml = buildEndView(STORE);
+//         $('.body').html(finishedHtml);
+//     }
+
+//   console.log(`currentQustion${currentQuestion}`);  
+//   console.log('`renderView` ran');
+    
+// }
+
+// // As a user, I should be able to select an answer.
+// // this function compares the checked answer to the correct answer for a T/F
+// function checkAnswer(){
+//   //listen for click on anwser button
+//   let answerText;
+
+//   function evaluateAnswer(answerToEvaluate) {
+//     return answerToEvaluate === STORE.answers.getCorrect();
+//     }
+
+//   $('.js-answer-form').on('click', function(event) {
+//     event.preventDefault();
+//     console.log('`checkAnswer` ran');
+//     //grab inner text of button that was clicked
+//     answerText = event.target.value;
+
+//     //compare button text to correct: in STORE
+//     answerIsCorrect = evaluateAnswer(answerText);
+//     showAnswerResult();
+//   });
+// }
+
+// // As a user, I should be able to find out if that answer was correct.
+// // this function renders the question result page showing the correct answer 
+// function showAnswerResult(){
+//   console.log('showAnswerResult ran');
+//   //determine if answer was correct or not
+//   if(answerIsCorrect) {
+//       //assign result sentence "correct" or "not correct"
+//       resultMessage = "Yaaay! You got it right!";
+//       //adjust score accordingly
+//       score++;
+//   } else {
+//       //assign result sentence "correct" or "not correct"
+//       resultMessage = "Awww, you got it wrong";
+//   }
+
+//   //render resultspage
+//   appState = "results-view";
+//   renderView(appState);
+//   moveToNextQuestion();
+//   currentQuestion++
+//   console.log(`score:${score}`);
+// }
+
+// // As a user, I should be able to move to the next question.
+// // this function listens for the next button to be activated & moves to next 
+// // question page
+// function moveToNextQuestion(){
+//      //detect click on next question button
+//     $('.next-question-btn').on('click', function(event) {
+//         if(currentQuestion <= 9) {
+//             STORE.pop();
+//             STORE.push(questionBank[currentQuestion]);
+//             appState = "question-view";
+//             renderView(appState);
+//         }
+
+//         if(currentQuestion > 9) {
+//             appState = "end-view";
+//             showFinalScore(); 
+//         }
 
     
-    });
-  console.log('`moveToNextQuestion` ran');
-}
+//     });
+//   console.log('`moveToNextQuestion` ran');
+// }
 
-// As a user, I should be able to view my score at the end.
-// this function displays the final score with a restart button to play again
-function showFinalScore(){
-    renderView(appState);
-    replayQuiz();
-    console.log('`showFinalScore` ran');
-}
+// // As a user, I should be able to view my score at the end.
+// // this function displays the final score with a restart button to play again
+// function showFinalScore(){
+//     renderView(appState);
+//     replayQuiz();
+//     console.log('`showFinalScore` ran');
+// }
 
-// As a user, I should have the option of restarting.
-// this function listens for the quiz restart button and restarts if needed 
-function replayQuiz(){
-    $('.js-retake-quiz').on('click',function(event){
-        score = 0;
-        currentQuestion = 0;
-        appState = "start-view";
-        STORE.pop();
-        STORE.push(questionBank[currentQuestion]);
-        startQuiz();
-    });
-  console.log('`replayQuiz` ran');
-}
+// // As a user, I should have the option of restarting.
+// // this function listens for the quiz restart button and restarts if needed 
+// function replayQuiz(){
+//     $('.js-retake-quiz').on('click',function(event){
+//         score =
+//         currentQuestion =
+//         appState = "start-view";
+//         STORE.pop();
+//         STORE.push(questionBank[currentQuestion]);
+//         startQuiz();
+//     });
+//   console.log('`replayQuiz` ran');
+// }
 
-// this function runs all functions below to rerender DOM as needed
-function foodQuizFunctions(){
-  startQuiz();
-}
+// // this function runs all functions below to rerender DOM as needed
+// function foodQuizFunctions(){
+//   startQuiz();
+// }
 
-$(foodQuizFunctions());
+// $(foodQuizFunctions());
