@@ -1,0 +1,27 @@
+#start-view .header .heading {
+    margin: 0;
+}
+
+#start-view .container {
+    background: var(--light-color);
+}
+
+#start-view .main{
+    display: flex;
+    flex-direction: column;
+    font-size: 2rem;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+}
+
+#start-view .btn-red {
+    font-size: 2rem;
+}
+
+@media only screen and (min-width: 600px) {
+    #start-view .container {
+        width: 600px;
+        margin: 0 auto;
+    }
+}

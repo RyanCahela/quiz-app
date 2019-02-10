@@ -1,0 +1,127 @@
+#question-view .header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    "heading        heading"
+    "question-number score"    
+}
+
+#question-view .heading {
+    grid-area: heading;
+    text-align: center;
+}
+
+#question-view .question-number {
+    grid-area: question-number;
+}
+
+#question-view .score {
+    grid-area: score;
+}
+
+#question-view .question-number,
+#question-view .score {
+    font-size: 1.7rem;
+    margin: 25px 0 0 0;
+    flex-basis: 50%;
+    text-align: center;
+}
+
+#question-view .score-number {
+    color: var(--accent-color);
+}
+
+
+#question-view .question {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    font-weight: bolder;
+}
+
+#question-view .question-text {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+
+#question-view .question-image {
+    filter: grayscale(100%);
+    width: 80%;
+    margin-top: 20px;
+}
+
+#question-view .answer-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#question-view .btn-red {
+    margin-top: 20px;
+}
+
+@media only screen and (min-width: 600px) {
+    #question-view .container {
+        width: 600px;
+        margin: 0 auto;
+    }
+}
+
+@media only screen and (min-width: 750px) {
+    #question-view .header {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #question-view .question-number,
+    #question-view .score {
+    font-size: 1.7rem;
+    margin: 0;
+    flex-basis: 25%;
+    text-align: center;
+    }
+
+    #question-view .btn-red {
+        font-size: 2rem;
+    }
+
+}
+
+@media only screen and (min-width: 1200px) {
+    #question-view .container {
+        width: 1000px;
+        display: flex;
+        flex-direction: row;
+        height: 60vh;
+        min-height: 500px;
+        padding: 20px;
+    }
+
+    #question-view .question {
+        flex-basis: 60%;
+    }
+
+    #question-view .answer-form {
+        flex: 1;
+    }
+
+    #question-view .answer-form .btn-red {
+        padding: 30px;
+        font-size: 2rem;
+    }
+
+    #question-view .score:after {
+        content: "You need 7 to win";
+        font-size: 1rem;
+        margin-left: 20px;
+    }
+}
+
+}
+
+
+

@@ -200,7 +200,7 @@ const STORE = [{
 // this function will listen for teh start button to be clicked
 function startQuiz(){
     renderView('start-view');
-    $('.start-button').on('click', function() {
+    $('.js-start-button').on('click', function() {
         appState = "question-view";
         renderView(appState);
     });
@@ -209,15 +209,17 @@ function startQuiz(){
 }
 
 function buildStartView() {
-    return $(`<section id="start-view" class="">
-    <header role="banner">
-        <h1>Push Food Origin Master</h1>
+    console.log('buildStartView Ran');
+    let finishedHtml = $(`<section id="start-view" class="">
+    <header role="banner" class="header">
+        <h1 class="heading">Food Origin Master</h1>
     </header>
-    <main role="main">
-        <h3>Are YOU a Food Origin Master?</h3>
-        <button class="start-button" aria-label="start quiz">Start Quiz</button>
+    <main role="main" class="container main">
+        <h3 class="text-center">Are YOU a food origin master?</h3>
+        <button class="js-start-button btn-red">Start Quiz</button>
     </main>
 </section>`);
+    return finishedHtml;
 }
 
 function buildQuestionView(STORE) {
@@ -229,31 +231,32 @@ function buildQuestionView(STORE) {
     let imageUrl = STORE[0].imageUrl;
     let imageAlt = STORE[0].imageAlt;
 
-    let builtQuestionView = $(`<section id="question-view">
-            <header role="banner">
-                <h1>Push Food Origin Master</h1>
-                <h2 class="js-score">Score</h2>
-            </header>
-            <main role="main">
-                <section>
-                    <img class="js-question-image" src="${imageUrl}" alt="${imageAlt}">
-                    <h5 class="js-question-text">${question}</h5>
-                </section>
-                <form class="js-answer-form" action="">
-                    <label for="${answer1}" class="hide">${answer1}</label>
-                    <input type="button" name="${answer1}" data-answer="1" value="${answer1}"></input>
+    let builtQuestionView = $(`<section id="question-view" class="">
+    <header role="banner" class="header">
+        <h1 class="heading">Food Origin Master</h1>
+        <h2 class="question-number">${currentQuestion + 1} of 10</h2>
+        <h2 class="score">Score: <span class="score-number">${score}</span></h2>
+    </header>
+    <main role="main" class="container">
+        <section class="question">
+            <img class="js-question-image question-image" src="${imageUrl}" alt="${imageAlt}">
+            <h5 class="js-question-text question-text">${question}</h5>
+        </section>
+        <form class="js-answer-form answer-form" action="">
+            <label for="${answer1}" class="hide">${answer1}</label>
+            <input class="btn-red" type="button" name="${answer1}" data-answer="1" value="${answer1}"></input>
 
-                    <label for="${answer2}" class="hide">${answer2}</label>
-                    <input type="button" name="${answer2}" data-answer="2" value="${answer2}"></input>
+            <label for="${answer2}" class="hide">${answer2}</label>
+            <input class="btn-red" type="button" name="${answer2}" data-answer="2" value="${answer2}"></input>
 
-                    <label for="${answer3}" class="hide">${answer3}</label>
-                    <input type="button" name="${answer3}" data-answer="3" value="${answer3}"></input>
+            <label for="${answer3}" class="hide">${answer3}</label>
+            <input class="btn-red" type="button" name="${answer3}" data-answer="3" value="${answer3}"></input>
 
-                    <label for="${answer4}" class="hide">${answer4}</label>
-                    <input type="button" name="${answer4}" data-answer="4" value="${answer4}"></input>
-                </form>
-            </main>
-        </section>`
+            <label for="${answer4}" class="hide">${answer4}</label>
+            <input class="btn-red" type="button" name="${answer4}" data-answer="4" value="${answer4}"></input>
+        </form>
+    </main>
+</section>`
     );
     return builtQuestionView; 
 }
@@ -264,6 +267,10 @@ function buildResultView(STORE) {
     let correctDetail = STORE[0].answers.correctDetail;
 
     let builtHtml = $(`<section id="results-view" class="">
+    <header role="banner">
+        <h1>Push Food Origin Master</h1>
+        <h2 class="js-score">Score:${score}</h2>
+    </header>
     <img src="${imageUrl}" alt="${imageAlt}">
     <h1>${resultMessage}</h1>
     <p>${correctDetail}</p>
