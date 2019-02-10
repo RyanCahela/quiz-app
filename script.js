@@ -197,34 +197,89 @@ const STORE = {
         answer4: {text: "Hungary",
                 isCorrect: false
                 },
-        getCorrect: function() {
-            let answers = Object.values(this);
-            
-            console.log(answers);    
-        },
     },
     correctDetail: `Others contend that pierogi were brought 
         to Poland by Saint Hyacinth of Poland, who brought them back 
-        from Kiev (the center of Kievan Rus', nowadays the capital of Ukraine).`
-    ,
+        from Kiev (the center of Kievan Rus', nowadays the capital of Ukraine).`,
+    imageUrl: "img/perogi2.jpg",
+    imageAlt: "white, round plate with seven perogi with light browning.",
+    score: 0,
+    answerIsCorrect: null,
+    appState: "start-view",
+    resultMessage: null,
+    currentQuestionNum: 0,
+    getCorrect: function() {
+        for(let answer in this.answers) {
+            if(this.answers[answer].isCorrect) {
+                return this.answers[answer].text;
+            }
+        } 
+    },
     getAnswers: function() {
         return this.answers;
     },
-    setAnswers: function(array) {
-        this.answers.answer1 = array[0];
-        this.answers.answer2 = array[1];
-        this.answers.answer3 = array[2];
-        this.answers.answer4 = array[3];
+    setAnswers: function(obj) {
+        this.answers.answer1 = obj.answer1;
+        this.answers.answer2 = obj.answer2;
+        this.answers.answer3 = obj.answer3;
+        this.answers.answer4 = obj.answer4;
     },
-
-    imageUrl: "img/perogi2.jpg",
-    imageAlt: "white, round plate with seven perogi with light browning."
+    getQuestion: function() {
+        return this.question;
+    },
+    setQuestion: function(newQuestion) {
+        this.question = newQuestion;
+    },
+    getImageUrl: function() {
+        return this.imageUrl;
+    },
+    setImageUrl: function(newUrl) {
+        this.imageUrl = newUrl;
+    },
+    getImageAlt: function() {
+        return this.imageAlt;
+    },
+    setImageAlt: function(newAltText) {
+        this.imageAlt = newAltText;
+    },
+    getScore: function() {
+        return this.score;
+    },
+    increaseScore: function(newScore) {
+        this.score++;
+    },
+    resetScore: function() {
+        this.score = 0;
+    },
+    getAnswerIsCorrect: function() {
+        return this.answerIsCorrect;
+    },
+    setAnswerIsCorrect: function(newValue) {
+        this.answerIsCorrect  = newValue;
+    },
+    getAppState: function() {
+        return this.appState;
+    },
+    setAppState: function(newState) {
+        this.appState = newState;
+    },
+    getResultMessage: function() {
+        return this.resultMessage;
+    },
+    setResultMessage: function(newMessage) {
+        this.resultMessage = newMessage; 
+    },
+    getCurrentQuestionNum: function() {
+        return this.currentQuestionNum;
+    },
+    increaseCurrentQuesitonNum: function() {
+        this.currentQuestionNum++;
+    },
+    resetCurrentQuestionNum: function() {
+        this.currentQuestionNum = 0;
+    },
   }
 
-
-
-
-console.log(STORE.getAnswers());
 
 
 
