@@ -401,7 +401,7 @@ function buildResultView(STORE) {
     let builtHtml = $(`<section id="results-view" class="">
     <div class="shadow">
         <main role="main" class="lightbox">
-            <img style="filter:greyscale(${filterAmount})" src="${imageUrl}" alt="${imageAlt}">
+            <img style="filter:grayscale(${filterAmount})" src="${imageUrl}" alt="${imageAlt}">
             <h5 class="result">${resultMessage}</h5>
             <p class="expanded-answer">${correctDetail}</p>
             <button class="btn-red next-question-btn" aria-label="next question">Next Question</button>
@@ -475,30 +475,31 @@ function checkAnswer(){
     }
 
   $('.js-answer-form').on('click', function(event) {
+    let answerText;
     event.preventDefault();
     console.log('`checkAnswer` ran');
     //grab inner text of button that was clicked
     answerText = event.target.value;
 
     //compare button text to correct: in STORE
-    answerIsCorrect = evaluateAnswer(answerText);
+    STORE.setAnswerIsCorrect(evaluateAnswer(answerText));
     showAnswerResult();
   });
+  console.log('`checkAnswer` ran');
 }
 
 // As a user, I should be able to find out if that answer was correct.
 // this function renders the question result page showing the correct answer 
 function showAnswerResult(){
-  console.log('showAnswerResult ran');
   //determine if answer was correct or not
-  if(answerIsCorrect) {
+  if(STORE.getAnswerIsCorrect()) {
       //assign result sentence "correct" or "not correct"
-      STORE.setResultMessage("Yaaay! You got it right!");
+      STORE.setResultMessage("Correct!");
       //adjust score accordingly
       STORE.increaseScore();
   } else {
       //assign result sentence "correct" or "not correct"
-      STORE.setResultMessage("Awww, you got it wrong.");
+      STORE.setResultMessage("Nope");
   }
 
   //render resultspage
@@ -506,6 +507,7 @@ function showAnswerResult(){
   renderView(STORE.getAppState());
 
   moveToNextQuestion();
+  console.log('showAnswerResult ran');
 }
 
 // As a user, I should be able to move to the next question.
@@ -519,7 +521,8 @@ function moveToNextQuestion(){
      //detect click on next question button
     $('.next-question-btn').on('click', function(event) {
         if(STORE.getCurrentQuestionNum() <= 9) {
-            renderView('question-view');
+            STORE.setAppState('question-view');
+            renderView(STORE.getAppState());
         }
         
         if(STORE.getCurrentQuestionNum() === 10) {
@@ -534,7 +537,8 @@ function moveToNextQuestion(){
 // As a user, I should be able to view my score at the end.
 // this function displays the final score with a restart button to play again
 function showFinalScore(){
-    renderView('end-view');
+    STORE.setAppState('end-view');
+    renderView(STORE.getAppState());
     replayQuiz();
     console.log('`showFinalScore` ran');
 }
