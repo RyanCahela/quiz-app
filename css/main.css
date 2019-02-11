@@ -68,3 +68,7 @@ body {
 .text-center {
     text-align: center;
 }
+
+.no-filter {
+    filter: none;
+}

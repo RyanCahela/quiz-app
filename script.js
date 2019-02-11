@@ -17,9 +17,8 @@ const questionBank = [
                     isCorrect: false
                     },
         },
-        answerDetail: `Others contend that pierogi were brought 
-            to Poland by Saint Hyacinth of Poland, who brought them back 
-            from Kiev (the center of Kievan Rus', nowadays the capital of Ukraine).`,
+        answerDetail: `(Ukraine) Some contend that pierogi were brought to Poland by Saint Hyacinth of Poland, 
+        who brought them back from Kiev (the center of Kievan Rus', nowadays the capital of Ukraine).`,
         imageUrl: `img/perogi2.jpg`,
         imageAlt: `white, round plate with seven perogi with light browning.`,
     },
@@ -39,9 +38,10 @@ const questionBank = [
                     isCorrect: false
                     },
         },
-        answerDetail: `Others contend that pierogi were brought 
-            to Poland by Saint Hyacinth of Poland, who brought them back 
-            from Kiev (the center of Kievan Rus', nowadays the capital of Ukraine).`,
+        answerDetail: `(US) Lionel Sternberger is reputed to have introduced the 
+        cheeseburger in 1926 at the age of 16 when he was working as a 
+        fry cook at his father's Pasadena, California sandwich shop, "The Rite Spot",
+         and experimentally dropped a slab of American cheese on a sizzling hamburger.`,
         imageUrl: `img/cheeseburger1.jpg`,
         imageAlt: `cheeseburger with a sesame seed bun, lettuce, tomato, and onion.`,
     },
@@ -49,7 +49,7 @@ const questionBank = [
         question: "Who invented Tofu?",
         answers: {
             answer1: {text: "Japan",
-                    isCorrect: true
+                    isCorrect: false
                     },
             answer2: {text: "Italy",
                     isCorrect: false
@@ -61,7 +61,7 @@ const questionBank = [
                     isCorrect: true
                     },
         },
-        answerDetail: `Tofu has been consumed for more than 2000 years in China`,
+        answerDetail: `(China) Tofu has been consumed for more than 2000 years in China.`,
         imageUrl: `img/tofu2.jpg`,
         imageAlt: `a block of solid tofu on a wooden cutting boar. A small pile of greens and a small pile 
         of cubed tofu are also on the cutting board.`,
@@ -105,7 +105,7 @@ const questionBank = [
                     isCorrect: true
                     },
         },
-        answerDetail: `Hanson Gregory, an American, claimed to have invented the ring-shaped doughnut 
+        answerDetail: `(US) Hanson Gregory, an American, claimed to have invented the ring-shaped doughnut 
         in 1847 aboard a lime-trading ship when he was 16 years old. Gregory was dissatisfied with the 
         greasiness of doughnuts twisted into various shapes and with the raw center of regular doughnuts.`,
         imageUrl: `img/donuts2.jpg`,
@@ -127,7 +127,7 @@ const questionBank = [
                     isCorrect: false
                     },
         },
-        answerDetail: `The earliest extant description of what is now often called a cupcake was in 1796,
+        answerDetail: `(US) The earliest extant description of what is now often called a cupcake was in 1796,
         when a recipe for "a light cake to bake in small cups" was written in American Cookery by Amelia Simmons`,
         imageUrl: `img/cupcake1.jpg`,
         imageAlt: `a yellow cupcake cunt in half on a plate. The frosting is white with tinges of blue and spilling from the center are sprinkles and candy pieces`,
@@ -148,7 +148,7 @@ const questionBank = [
                     isCorrect: false
                     },
         },
-        answerDetail: `Curry (plural curries) is a variety of dishes originating in the Indian subcontinent 
+        answerDetail: `(India) Curry (plural curries) is a variety of dishes originating in the Indian subcontinent 
         that use a complex combination of spices or herbs, usually including ground turmeric, cumin, coriander,
          ginger, and fresh or dried chilies.`,
         imageUrl: `img/curry3.jpg`,
@@ -158,7 +158,7 @@ const questionBank = [
         question: "Nothing beats Scotch Eggs as bar food but who came up with it?",
         answers: {
             answer1: {text: "Scotland",
-                    isCorrect: true
+                    isCorrect: false
                     },
             answer2: {text: "Ireland",
                     isCorrect: false
@@ -170,7 +170,7 @@ const questionBank = [
                     isCorrect: false
                     },
         },
-        answerDetail: `The London department store Fortnum & Mason claims to have invented Scotch eggs in 
+        answerDetail: `(England) The London department store Fortnum & Mason claims to have invented Scotch eggs in 
         1851 but the name for the snack was supposedly derived from a nickname used by Londoners who lived 
         around Wellington Barracks after Officers of the Scots Guards stationed there developed a taste for the snack`,
         imageUrl: `img/scotcheggs2.jpg`,
@@ -193,12 +193,11 @@ const questionBank = [
                     isCorrect: false
                     },
         },
-        answerDetail: `The London department store Fortnum & Mason claims to have invented Scotch eggs in 
-        1851 but the name for the snack was supposedly derived from a nickname used by Londoners who lived 
-        around Wellington Barracks after Officers of the Scots Guards stationed there developed a taste for the snack`,
-        imageUrl: `img/scotcheggs2.jpg`,
-        imageAlt: `Three Scotch egg halvs yolk up and one half down on a wooden cutting board with a cup 
-        of mustard. Scotch eggs are medium hard eggs wrapped in sausage, rolled in breadcrumbs and fried.`,
+        answerDetail: `(US) The term hamburger originally derives from Hamburg, Germany's s
+        econd-largest city but the actual sandwich may have been done first in New Haven CT, 
+        in 1900 Louis Lassen, a Danish immigrant, owner of Louis' Lunch.`,
+        imageUrl: `img/hamburger2.jpg`,
+        imageAlt: `grilled beef patty on a sesame seed bun with ketchup and pickles.`,
     },
     {
         question: "Mix your soy and Wasabi-who brought us Sushi?",
@@ -216,10 +215,10 @@ const questionBank = [
                     isCorrect: false
                     },
         },
-        answerDetail: `The earliest form of sushi, a dish today known as narezushi, 
+        answerDetail: `(South East Asia) The earliest form of sushi, a dish today known as narezushi, 
         has its probable origin with paddy fields along the Mekong river in Southeast Asia. 
         The prototypical narezushi is made by lacto-fermenting fish with salt and rice in
-         order to control putrefaction.( Southeast Asia)`,
+         order to control putrefaction.`,
         imageUrl: `img/sushi3.jpg`,
         imageAlt: `An oval platter with sliced nori wrapped sushi rolls stacked.Chopsticks lay across the platter.`,
     }
@@ -227,9 +226,7 @@ const questionBank = [
 
 const STORE = {
     question: "",
-    answers: {
-        answer1: {},
-    },
+    answers: {},
     answerDetail: ``,
     imageUrl: "",
     imageAlt: "",
@@ -339,7 +336,7 @@ function startQuiz(){
         STORE.setAppState("question-view");
         renderView(STORE.getAppState());
     });
-     console.log('`startQuiz` ran');
+     console.log('startQuiz ran');
 }
 
 function buildStartView() {
@@ -370,57 +367,72 @@ function buildQuestionView(STORE) {
         <h2 class="question-number">${STORE.getCurrentQuestionNum() + 1} of 10</h2>
         <h2 class="score">Score: <span class="score-number">${STORE.getScore()}</span></h2>
     </header>
-    <main role="main" class="container">
-        <section class="question">
-            <img class="js-question-image question-image" src="${imageUrl}" alt="${imageAlt}">
-            <h5 class="js-question-text question-text">${question}</h5>
-        </section>
-        <form class="js-answer-form answer-form" action="">
-            <label for="${answer1}" class="hide">${answer1}</label>
-            <input class="btn-red" type="button" name="${answer1}" data-answer="1" value="${answer1}"></input>
+        <main role="main" class="container">
+            <section class="question">
+                <img class="js-question-image question-image" src="${imageUrl}" alt="${imageAlt}">
+                <h5 class="js-question-text question-text">${question}</h5>
+            </section>
+            <form class="js-answer-form answer-form" action="">
+                <label for="${answer1}" class="hide">${answer1}</label>
+                <input class="btn-red" type="button" name="${answer1}" data-answer="1" value="${answer1}"></input>
 
-            <label for="${answer2}" class="hide">${answer2}</label>
-            <input class="btn-red" type="button" name="${answer2}" data-answer="2" value="${answer2}"></input>
+                <label for="${answer2}" class="hide">${answer2}</label>
+                <input class="btn-red" type="button" name="${answer2}" data-answer="2" value="${answer2}"></input>
 
-            <label for="${answer3}" class="hide">${answer3}</label>
-            <input class="btn-red" type="button" name="${answer3}" data-answer="3" value="${answer3}"></input>
+                <label for="${answer3}" class="hide">${answer3}</label>
+                <input class="btn-red" type="button" name="${answer3}" data-answer="3" value="${answer3}"></input>
 
-            <label for="${answer4}" class="hide">${answer4}</label>
-            <input class="btn-red" type="button" name="${answer4}" data-answer="4" value="${answer4}"></input>
-        </form>
-    </main>
-</section>`
+                <label for="${answer4}" class="hide">${answer4}</label>
+                <input class="btn-red" type="button" name="${answer4}" data-answer="4" value="${answer4}"></input>
+            </form>
+        </main>
+    </section>`
     );
     return builtQuestionView; 
 }
 
 function buildResultView(STORE) {
-    let imageUrl = STORE.imageUrl;
-    let imageAlt = STORE.imageAlt;
-    let correctDetail = STORE.answers.correctDetail;
+    let imageUrl = STORE.getImageUrl();
+    let imageAlt = STORE.getImageAlt();
+    let correctDetail = STORE.getAnswerDetail();
+    let resultMessage = STORE.getResultMessage();
+    let filterAmount = STORE.getAnswerIsCorrect() ? 0 : 1;
 
     let builtHtml = $(`<section id="results-view" class="">
-    <img src="${imageUrl}" alt="${imageAlt}">
-    <h1>${resultMessage}</h1>
-    <p>${correctDetail}</p>
-    <button class="next-question-btn" aria-label="next question">Next Question</button>
+    <div class="shadow">
+        <main role="main" class="lightbox">
+            <img style="filter:greyscale(${filterAmount})" src="${imageUrl}" alt="${imageAlt}">
+            <h5 class="result">${resultMessage}</h5>
+            <p class="expanded-answer">${correctDetail}</p>
+            <button class="btn-red next-question-btn" aria-label="next question">Next Question</button>
+        </main>
+    </div>
 </section>`);
 
     return builtHtml;
 
 }
 
-function buildEndView() {
+function buildEndView(STORE) {
+    let score = STORE.getScore();
+    let didWin = STORE.getScore() >= 7;
+    let image = didWin ? "img/you-win.gif" : "img/you-lose.gif";
+    let imageAlt = didWin ? "dancing captain picard" : "willy wonka you lose";
+    let resultText = didWin ? "You won! Congratulations" : "You lose sir! Good day!"
+    
+
+
     return $(`<section id="end-view" class="">
-    <header role="banner">
-        <h1>Push Food Origin Master</h1>
+    <header role="banner" class="header">
+        <h1>Food Origin Master</h1>
     </header>
-    <main role="main">
-        <h3>${score}</h3>
-        <img src="" alt="">
-        <button class="js-retake-quiz" aria-label="retake quiz">Retake Quiz</button>
+    <main role="main" class="container">
+        <h3 class="score">Score: ${score}/10</h3>
+        <img class="result-image" src="${image}" alt="${imageAlt}">
+        <p class="result-text">${resultText}</p>
+        <button class="js-retake-quiz btn-red" aria-label="retake quiz">Retake Quiz</button>
     </main>
-    </section>`);   
+</section>`);   
 }
 
 // As a user, I should be able to view the questions and answers.
@@ -439,7 +451,7 @@ function renderView(appState){
         checkAnswer();
     }
 
-    if(appState === "results-view") {
+    if(appState === "result-view") {
         let finishedHtml = buildResultView(STORE);
         $('.body').html(finishedHtml);
     }
@@ -459,7 +471,7 @@ function checkAnswer(){
   let answerText;
 
   function evaluateAnswer(answerToEvaluate) {
-    return answerToEvaluate === STORE.answers.getCorrect();
+    return answerToEvaluate === STORE.getCorrect();
     }
 
   $('.js-answer-form').on('click', function(event) {
@@ -481,40 +493,39 @@ function showAnswerResult(){
   //determine if answer was correct or not
   if(answerIsCorrect) {
       //assign result sentence "correct" or "not correct"
-      resultMessage = "Yaaay! You got it right!";
+      STORE.setResultMessage("Yaaay! You got it right!");
       //adjust score accordingly
-      score++;
+      STORE.increaseScore();
   } else {
       //assign result sentence "correct" or "not correct"
-      resultMessage = "Awww, you got it wrong";
+      STORE.setResultMessage("Awww, you got it wrong.");
   }
 
   //render resultspage
-  appState = "results-view";
-  renderView(appState);
+  STORE.setAppState('result-view');
+  renderView(STORE.getAppState());
+
   moveToNextQuestion();
-  currentQuestion++
-  console.log(`score:${score}`);
 }
 
 // As a user, I should be able to move to the next question.
 // this function listens for the next button to be activated & moves to next 
 // question page
 function moveToNextQuestion(){
+    STORE.increaseCurrentQuesitonNum();
+    if(STORE.getCurrentQuestionNum() <= 9) {
+        loadQuestion(STORE.getCurrentQuestionNum());
+    }
      //detect click on next question button
     $('.next-question-btn').on('click', function(event) {
-        if(currentQuestion <= 9) {
-            STORE.pop();
-            STORE.push(questionBank[currentQuestion]);
-            appState = "question-view";
-            renderView(appState);
+        if(STORE.getCurrentQuestionNum() <= 9) {
+            renderView('question-view');
         }
-
-        if(currentQuestion > 9) {
-            appState = "end-view";
-            showFinalScore(); 
+        
+        if(STORE.getCurrentQuestionNum() === 10) {
+            showFinalScore()
         }
-
+        console.log('next-quesiton clicked');
     
     });
   console.log('`moveToNextQuestion` ran');
@@ -523,7 +534,7 @@ function moveToNextQuestion(){
 // As a user, I should be able to view my score at the end.
 // this function displays the final score with a restart button to play again
 function showFinalScore(){
-    renderView(appState);
+    renderView('end-view');
     replayQuiz();
     console.log('`showFinalScore` ran');
 }
@@ -532,11 +543,8 @@ function showFinalScore(){
 // this function listens for the quiz restart button and restarts if needed 
 function replayQuiz(){
     $('.js-retake-quiz').on('click',function(event){
-        score =
-        currentQuestion =
-        appState = "start-view";
-        STORE.pop();
-        STORE.push(questionBank[currentQuestion]);
+        STORE.resetCurrentQuestionNum();
+        STORE.resetScore();
         startQuiz();
     });
   console.log('`replayQuiz` ran');
