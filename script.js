@@ -470,9 +470,17 @@ function checkAnswer(){
   //listen for click on anwser button
   let answerText;
 
+  let timer = setTimeout(function() {
+        STORE.resetCurrentQuestionNum();
+        STORE.resetScore();
+        startQuiz();
+  }, 30000);
+
   function evaluateAnswer(answerToEvaluate) {
     return answerToEvaluate === STORE.getCorrect();
     }
+
+
 
   $('.js-answer-form').on('click', function(event) {
     let answerText;
@@ -483,6 +491,7 @@ function checkAnswer(){
 
     //compare button text to correct: in STORE
     STORE.setAnswerIsCorrect(evaluateAnswer(answerText));
+    clearTimeout(timer);
     showAnswerResult();
   });
   console.log('`checkAnswer` ran');
